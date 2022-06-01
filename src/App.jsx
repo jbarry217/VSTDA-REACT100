@@ -15,6 +15,7 @@ class App extends Component {
     }
   this.handleChange = this.handleChange.bind(this);
   this.addTodo = this.addTodo.bind(this);
+  this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   handleChange(event) {
@@ -29,6 +30,14 @@ class App extends Component {
     }
     const todoArrayClone = this.state.todoArray.concat(this.state.todoObj);
     this.setState({ todoArray : todoArrayClone, todoObj : todoReset })
+  }
+  deleteTodo(i){
+    let todoArrayClone = JSON.parse(JSON.stringify(this.state.todoArray));
+    todoArrayClone.splice(i, 1)
+
+    this.setState({
+      todoArray: todoArrayClone,
+    });
   }
 
   render() {
@@ -58,6 +67,7 @@ class App extends Component {
                               index={i}
                               textarea={todo.textarea}
                               priority={todo.priority}
+                              deleteTodo={this.deleteTodo}
                               />
                             )
                           })
