@@ -11,11 +11,11 @@ export class AddNewTodo extends React.Component{
                 <div className='card-body'>
                   <div className='input-group input-lg'>
                       <label htmlFor='toDo' className="form-label"><b>I want to..</b></label>
-                      <br/>
-                        <textarea className="create-todo-text form-control" name="textarea" type="text" value={this.props.todoObj.textarea} onChange= {(e) => this.props.handleChange(e)}/>
+                    <br/>
+                        <textarea className="create-todo-text form-control" id= "textarea" name="textarea" type="text" value={this.props.todoObj.textarea} onChange= {(e) => this.props.handleChange(e)}/>
                     <br/>
                     <label htmlFor='priority' className='form-label'><b>How much of a priority is this?</b></label>
-                      <select className="create-todo-priority" name="priority" value={this.props.todoObj.priority} onChange= {(e) => this.props.handleChange(e)}>
+                      <select className="create-todo-priority" id= "priority" name="priority" value={this.props.todoObj.priority} onChange= {(e) => this.props.handleChange(e)}>
                         <option>Select Priority</option>
                         <option value="1">Low Priority</option> 
                         <option value="2">Medium Priority</option>
