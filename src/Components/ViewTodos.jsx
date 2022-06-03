@@ -8,9 +8,9 @@ export default props => (
         <div className="list-group checkbox-list-group">
             <li className={`"fw-bold" list-group-item list-group-item-${props.priority=='1'? "success" : props.priority=='2'? "warning" : "danger"}`}>
             
-            <input type="checkbox" onChange = {() => props.completed(props.index)}/>
-           
-            {props.textarea}
+            <input type="checkbox" onChange= {() => props.completed(props.index)}></input>
+           <span className={`${props.todoObj.checkbox == true ? "strike-through" : "no-strike-through"}`}>{props.textarea}</span>
+            
             <div className="float-end">
             <a className='edit-todo mx-2' onClick={() => props.editTodo(props.index)}><span className="mi material-symbols-outlined">edit</span></a>
             <a className='delete-todo mx-2' onClick={() => props.deleteTodo(props.index)}><span className="mi material-symbols-outlined">delete</span></a>
