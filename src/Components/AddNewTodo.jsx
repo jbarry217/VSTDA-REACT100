@@ -12,10 +12,10 @@ export class AddNewTodo extends React.Component{
                   <div className='input-group input-lg'>
                       <label htmlFor='toDo' className="form-label"><b>I want to..</b></label>
                     <br/>
-                        <textarea className="create-todo-text form-control" id= "textarea" name="textarea" type="text" value={this.props.todoObj.textarea} onChange= {(e) => this.props.handleChange(e)}/>
+                        <textarea className="create-todo-text form-control" id= "input-textarea" name="textarea" type="text" value={this.props.todoObj.textarea} onChange= {(e) => this.props.handleChange(e)}/>
                     <br/>
                     <label htmlFor='priority' className='form-label'><b>How much of a priority is this?</b></label>
-                      <select className="create-todo-priority" id= "priority" name="priority" value={this.props.todoObj.priority} onChange= {(e) => this.props.handleChange(e)}>
+                      <select className="create-todo-priority" id= "input-priority" name="priority" value={this.props.todoObj.priority} onChange= {(e) => this.props.handleChange(e)}>
                         <option>Select Priority</option>
                         <option value="1">Low Priority</option> 
                         <option value="2">Medium Priority</option>
@@ -24,7 +24,7 @@ export class AddNewTodo extends React.Component{
                     <br/>
                     <button
                     onClick={() => this.props.addTodo()}
-                    className='btn btn-primary btn-block btn-success' 
+                    className='create-todo btn btn-primary btn-block btn-success' 
                     type= "button"
                     id="add">
                       Add

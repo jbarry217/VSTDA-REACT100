@@ -11,7 +11,7 @@ class App extends Component {
         priority: '',
         textarea: '',
         edit: false,
-        completed: false,
+        checkbox: false,
       },
       todoArray: [],
     }
@@ -19,8 +19,7 @@ class App extends Component {
   this.addTodo = this.addTodo.bind(this);
   this.deleteTodo = this.deleteTodo.bind(this);
   this.editTodo = this.editTodo.bind(this);
-  // this.handleSave = this.handleSave.bind(this);
-  this.checkbox = this.checkbox.bind(this);
+  this.completed = this.completed.bind(this);
   this.handleUpdate= this.handleUpdate.bind(this);
   }
 
@@ -28,8 +27,7 @@ class App extends Component {
     const todoObjClone = JSON.parse(JSON.stringify(this.state.todoObj));
     todoObjClone[event.target.name] = event.target.value;
     this.setState({ todoObj : todoObjClone });
-    console.log(event.target.name);
-    console.log(event.target.value);
+  
   }
 
   handleUpdate(event, i){
@@ -52,9 +50,9 @@ class App extends Component {
     this.setState({ todoArray : todoArrayClone, todoObj : todoReset })
   }
 
-  checkbox(i){
+  completed(i){
     let todoArrayClone = JSON.parse(JSON.stringify(this.state.todoArray));
-    todoArrayClone[i].completed = !todoArrayClone[i].completed
+    todoArrayClone[i].checkbox = !todoArrayClone[i].checkbox;
 
     this.setState({
       todoArray: todoArrayClone,
@@ -78,16 +76,6 @@ class App extends Component {
       todoArray: todoArrayClone,
     });
   }
-
-  // handleSave(i, todoObj){
-  //   let todoArrayClone = JSON.parse(JSON.stringify(this.state.todoArray));
-  //   todoArrayClone[i] = !todoArrayClone[i];
-  //   todoArrayClone[i] = todoObj;
-
-  //   this.setState({
-  //     todoArray: todoArrayClone,
-  //   });
-  // }
 
   render() {
     return (
@@ -123,8 +111,7 @@ class App extends Component {
                               editTodo={this.editTodo}
                               handleChange={this.handleChange}
                               handleUpdate={this.handleUpdate}
-                              // handleSave={this.handleSave}
-                              checkbox={this.checkbox}
+                              completed={this.completed}
                               />
                             )
                           })
